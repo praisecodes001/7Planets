@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7 Planets - Cart</title>
+    <link rel="stylesheet" href="{% static 'planetapp/cart.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/home">Home</a></li>
+                <li><a href="/product/">Products</a></li>
+                <li><a href="/cart/" class="active">Cart</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+      
+
+        <table>
+            <thead>
+                <tr class="row">
+                    <th class="col-1">Product</th>
+                    <th class="col-1">Price</th>
+                    <th class="col-1">Quantity</th>
+                    <th class="col-1">Total</th>
+                </tr>
+            </thead>
+            <tbody >
+                {% for item in cart.items.all %}
+                <tr class="row">
+                    <td class="col-2">{{ item.post.name }}</td>
+                    <td class="col-2" >₦{{ item.post.price }}</td>
+                    <td class="col-2" >{{ item.quantity }}</td>
+                    <td class="col-2" >₦{{ item.total_price }}</td>
+                    <td>
+                    
+                        <form method="POST" action="{% url 'remove_from_cart' item.post.id %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="item_id" value="{{ item.id }}">
+                            <button type="submit" class="remove-item" data-item-id="{{ item.id }}">Remove</button>
+                        </form>
+                        
+                        
+
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            </table>
+
+            <form action="{% url 'checkout' %}" method="POST">
+                {% csrf_token %}
+                <label for="size">Size</label>
+                <select name="size" id="size" required>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                </select>
+            
+                <label for="num">Phone Number</label>
+                <input type="number" name="num" id="num" required>
+            
+                <label for="email">Email Address</label>
+                <input type="email" name="email" id="email" required>
+            
+                <label for="address">Address</label>
+                <input type="text" name="address" id="address" required>
+                <div class="btn" onclick="showPay()">Proceed to Payment</div>
+                <div class="pay" id="pay">
+                    <h2>Transfer Details</h2>
+                    <h3>Account Number: 1427074731</h3>
+                    <h3>Bank: WEMA</h3>
+                    <h3>Name: 7 Planet Funds</h3>
+                    <h3 id="total-price">Amount: ₦{{ cart.total_price }}</h3>
+                    <button type="submit">I have made this transfer</button>
+                </div>
+                
+            
+            
+               
+            </form>
+            
+    </main>
+
+    <footer>
+        <p>&copy; 2023 7 Planets. All rights reserved.</p>
+    </footer>
+
+    <script type='text/javascript'>
+        function showPay() {
+          document.getElementById('pay').style.display = 'block';
+          document.querySelector('.btn').style.display = 'none';
+          
+        }
+        </script>
+</body>
+
+
+
+</html>

@@ -1,0 +1,181 @@
+/* General Reset */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-flex;
+    margin-right: 40px;
+}
+
+.nav-links{
+    text-align:center;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav ul li a.active {
+    font-weight: bold;
+}
+
+main h2 {
+    margin-top: 2rem;
+    color: #333;
+    font-size: 1.5rem;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+/* General table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+  }
+  
+  thead {
+    background-color: #f4f4f4;
+  }
+  
+  th, td {
+    padding: 12px 15px;
+    text-align: center;
+  }
+  
+  /* Column-specific styling for alignment */
+  th.col-1, td.col-2 {
+    width: 20%; /* Adjust the percentage as needed */
+  }
+  
+  /* Row borders */
+  tr {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Hover effect */
+  tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Remove button styling */
+  button.remove-item {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  button.remove-item:hover {
+    background-color: #c0392b;
+  }
+  
+  /* Total price styling */
+  #total-price {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: right;
+    color: #333;
+  }
+  form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  /* Input and select styling */
+  form input[type="number"],
+  form input[type="email"],
+  form input[type="text"],
+  form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #fff;
+    color: #333;
+    box-sizing: border-box;
+  }
+  
+  /* Input and select focus state */
+  form input[type="number"]:focus,
+  form input[type="email"]:focus,
+  form input[type="text"]:focus,
+  form select:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+  }
+  form button a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  form button a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Mobile responsiveness */
+  @media (max-width: 500px) {
+    form {
+      padding: 15px;
+    }
+  
+    form button {
+      font-size: 14px;
+    }
+  }    
+.pay{
+  display: none;
+}
+.btn{
+  background: linear-gradient(to left, aqua , brown);
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 30px;
+  border-radius: 8px;
+  display: inline-block;
+  cursor: pointer;
+  margin-bottom: 40px;
+  margin-left: 75%;
+  margin-top: 20px;
+} 

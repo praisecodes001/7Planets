@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Detail</title>
+    <link rel="stylesheet" href="{% static 'planetapp/style.css' %}" >
+</head>
+<body>
+    <h1>Order Details</h1>
+    <p><strong>Order ID:</strong> {{ order.id }}</p>
+    <p><strong>Customer:</strong> {{ order.user.username }}</p>
+    <p><strong>Phone:</strong> {{ order.phone_number }}</p>
+    <p><strong>Email:</strong> {{ order.email }}</p>
+    <p><strong>Size:</strong> {{ order.size }}</p>
+    <p><strong>Address:</strong> {{ order.address }}</p>
+    <p><strong>Total Price:</strong> ₦{{ order.total_price }}</p>
+    <p><strong>Status:</strong> {{ order.status }}</p>
+    <p><strong>Order Date:</strong> {{ order.created_at|date:"d M Y, H:i" }}</p>
+    <h2>Items</h2>
+    <ul>
+        {% for item in order.items.all %}
+        <li>{{ item.post.name }} - ₦{{ item.post.price }} x {{ item.quantity }}</li>
+        {% endfor %}
+    </ul>
+    <form method="POST" action="{% url 'update_order_status' order.id %}">
+        {% csrf_token %}
+        <label for="status">Update Status:</label>
+        <select name="status" id="status">
+            <option value="Pending" {% if order.status == "Pending" %}selected{% endif %}>Pending</option>
+            <option value="Processing" {% if order.status == "Processing" %}selected{% endif %}>Processing</option>
+            <option value="Shipped" {% if order.status == "Shipped" %}selected{% endif %}>Shipped</option>
+            <option value="Delivered" {% if order.status == "Delivered" %}selected{% endif %}>Delivered</option>
+            <option value="Cancelled" {% if order.status == "Cancelled" %}selected{% endif %}>Cancelled</option>
+        </select>
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html>

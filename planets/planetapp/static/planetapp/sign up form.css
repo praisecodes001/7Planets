@@ -1,0 +1,155 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+body{
+    font-family: open sans;
+    background: linear-gradient(to left, rgb(228, 228, 228), rgb(255, 253, 255)),url(planetapp/image/IMG-20250106-WA0001.jpg) ;
+    background-size: cover;
+}
+label.logo{
+    padding-top: 40px;
+    font-size: 30px;
+    line-height: 80px;
+    padding: 0 10px;
+    font-weight: bold;
+}
+label.logo a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.custom-class input[type=text]{
+    width: 100%;
+    padding: 10px 0;
+    margin: 5px 0;
+    margin-top: 30px;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    border-bottom: 1px solid #3b5998;
+    outline: none;
+    background: transparent;
+    color: #fff;
+    
+}
+.custom-class input[type=email]{
+    width: 100%;
+    padding: 10px 0;
+    margin: 5px 0;
+    margin-top: 30px;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    border-bottom: 1px solid #3b5998;
+    outline: none;
+    background: transparent;
+    color: #fff;
+    
+}
+.custom-class input[type=password]{
+    width: 100%;
+    padding: 10px 0;
+    margin: 5px 0;
+    margin-top: 30px;
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    border-bottom: 1px solid #3b5998;
+    outline: none;
+    background: transparent;
+    color: #fff;
+    
+}
+.check-box{
+    margin: 5px 10px 30px 0;
+}
+
+span{
+    font-size: 12px;
+    position: absolute;
+}
+
+#message{
+    resize: none;
+    
+}
+span.error{
+    color: red;
+    font-size: 10px;
+    
+}
+
+
+
+
+.sign-up-form{
+    width: 300px;
+    background: linear-gradient(to right, rgb(12, 8, 8), rgb(0, 0, 0));
+    padding: 20px;
+    margin: 5% auto;
+    text-align: center;
+    color: #fff;
+    
+    margin-top: 40px;
+}
+
+.sign-up-form:hover{
+    background: linear-gradient(to left, rgb(0, 0, 0), rgb(11, 11, 14));
+
+}
+
+.input-box{
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px 0;
+    width: 100%;
+    border: 1px solid #ff0000;
+    outline: none;
+}
+button{
+    color: #000000;
+    width: 100%;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 15px;
+    margin: 10px 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.signup-btn{
+    background-color: #1c8adb;
+}
+
+hr{
+    margin-top: 20px;
+    width: 100%;
+   
+}
+a{
+    text-decoration: none;
+}
+.row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.or{
+    background: #fff;
+    width: 30px;
+    color: #000000;
+    margin: -19px auto 10px;
+
+}
+img{
+    width: 80px;
+}
+.col-1 img{
+    max-width: 50%;
+    padding: 50px 0;
+}

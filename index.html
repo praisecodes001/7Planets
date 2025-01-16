@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7 Planets - Home</title>
+    <link rel="stylesheet" href= "index.css"> 
+</head>
+<body>
+    <div class="header">
+        <nav>
+            <ul class = "nav-links">
+                <li><a href="/home" class="active">Home</a></li>
+                <li><a href="/product/">Products</a></li>
+                <li><a href="/register/">Register</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+                
+
+            </ul>
+        </nav>
+        <div class="container">
+            <div class="slideshow">
+                <div class="slides">
+                    <img src="image/IMG-20250106-WA0001.jpg" alt="Fashion Image 1">
+                    <video src="video/Best of 200lv.mp4" autoplay muted loop></video>
+                    <img src="image/IMG-20250114-WA0007.jpg" alt="Fashion Image 2">
+                    <img src="image/IMG-20250114-WA0008.jpg" alt="Fashion Image 3">
+                    <video src="video/Best of 200lv.mp4" autoplay muted loop></video>
+                    <img src="image/IMG-20250114-WA0007.jpg" alt="Fashion Image 4">
+                </div>
+            </div>
+            <div class="text-section">
+                <h1>Discover Top Clothing Brands</h1>
+                <p>Explore the latest trends and timeless styles from leading clothing brands. Our collection brings together quality, comfort, and elegance for every occasion.</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2023 7 Planets. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+

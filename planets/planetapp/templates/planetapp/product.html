@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7 Planets - Products</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/f9f6acc074.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'planetapp/product.css' %}">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="nav-links"  id="nav-links">
+                <li><a href="/home">Home</a></li>
+                <li><a href="products.html" class="active">Products</a></li>
+                <li><a href="/cart/">Cart</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+                <i class="fas fa-times" onclick="closemenu()"></i>
+
+            </ul>
+            <i class="fas fa-bars" onclick="openmenu()"></i>
+        </nav>
+    </header>
+    {% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+        <div class="alert {{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    
+    <main>
+        <h1>Our Products</h1>
+        <div class="product-grid">
+            {% for post in posts %}
+            <div class="product-card">
+                <img src="{{ post.image.url }}" alt="{{ post.name }}" style="height: 250px;">
+                <h3>{{ post.name }}</h3>
+                <p>₦{{ post.price }}</p>
+                <form method="POST" action="{% url 'add_to_cart' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="product_id" value="{{ post.id }}">
+                    <input type="hidden" name="quantity" value="1">
+                    <button type="submit" class="add-to-cart">Add to Cart</button>
+                </form>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+    
+
+    <footer>
+        <p>&copy; 2023 7 Planets. All rights reserved.</p>
+    </footer>
+
+ 
+
+
+    <script>
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                const postId = this.getAttribute('data-post-id');
+    
+                fetch('/add-to-cart/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': '{{ csrf_token }}'
+                    },
+                    body: JSON.stringify({
+                        post_id: postId,
+                        quantity: 1
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message);
+                    console.log('Total Price:', data.total_price);
+                });
+            });
+        });
+    </script>
+ <script>
+
+    var sidemenu = document.getElementById("nav-links");
+
+     function openmenu(){
+          sidemenu.style.right = "0";
+     }
+     function closemenu(){
+         sidemenu.style.right = "-200px";
+     }
+ </script>
+
+</body>
+</html>

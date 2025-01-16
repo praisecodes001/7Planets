@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta charset="X-UA-compatible" content="IE-edge">
+      <title>7 Planets |Registration</title>
+      <link rel="stylesheet" href= '{% static "planetapp/sign up form.css"%}'>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+    </head>
+
+
+    <body>
+         <div class="sign-up-form">
+            <label class="logo"><a href="#">7 Planet</a></label>
+
+            <form id="register" action="" class="input-group" onsubmit="return checkForBlank()" method="POST" enctype="multipart/form-data">
+                 
+                {% csrf_token %}
+                <div  class="input-field custom-class" name="username" id="username" placeholder=" User Name" style="outline: none;">{{form.username}}</div>
+                <span id="username_error_message" class="error"></span>
+
+                <div type="email" class="input-field custom-class" name="email" id="email" placeholder="Email"  style="outline: none;">{{form.email}}</div>
+                <span id="email_error_message" class="error"></span>
+
+
+                <div type="password" class="input-field custom-class" id="password1" name="password1" placeholder="Password" style="outline: none;" >{{form.password1}}</div>
+                <span id="password1_error_message" class="error"></span>
+
+
+                <div type="password" class="input-field custom-class" name="password2" id="password2" placeholder="Confirm Password" style="outline: none;" >{{form.password2}}</div>
+
+
+                   <p><span><input type="checkbox"></span> <a href="">I agree to all terms and conditions</a></p>
+
+                   <button type="submit" class="signup-btn" name="Create User"> Sign Up</button>
+                   {{form.errors}}
+
+
+                   <hr>
+
+
+                   <p class="or">OR</p>
+                   <p>Sign In with</p>
+
+
+
+                   <div class="row">
+                    <div class="col-1">
+                    <a href="#"><img src="image/google.jpg" alt=""></a>
+
+                    </div>
+                    <div class="col-1">
+                        <a href="#"><img src="image/facebook.jfif" alt=""></a>
+                    </div>
+                    <div class="col-1">
+                        <a href="#"><img src="image/twitter.png" alt=""></a>
+                    </div>
+                   </div>
+
+               <p>Do you have an account? <br><a href="/login/">Sign In</a></p>
+ 
+
+
+
+
+
+
+
+            </form>
+
+         </div>
+
+         
+<script>
+    function checkForBlank() {
+if(document.getElementById("email").value == "") {
+    document.getElementById("email_error_message").textContent="Email required!";
+        
+}
+if(document.getElementById("password").value == "") {
+    document.getElementById("password1_error_message").textContent="Password required!";
+        
+}
+if(document.getElementById("number").value == "") {
+    document.getElementById("phone_number_message").textContent="Phone Number required!";
+        
+}
+       
+if (document.getElementById("username").value == "") {
+    document.getElementById("username_error_message").textContent="Username required!";
+     return false;
+}
+            }
+        </script>
+
+    </body>
+</html>

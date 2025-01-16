@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta charset="X-UA-compatible" content="IE-edge">
+      <title>7 Planets |Log in</title>
+      <link rel="stylesheet" href= '{% static "planetapp/sign up form.css"%}'>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+    </head>
+
+
+    <body>
+         <div class="sign-up-form">
+            <label class="logo"><a href="#">7 Planet</a></label>
+
+            <form id="login" action="" class="input-group" method="POST">
+             
+                {% csrf_token %}
+                <input type="text" class="input-field  custom-class" id="enter" placeholder="Username" name="username" required>
+                <input type="password" class="input-field custom-class" id="enter" placeholder="Password" name="password" required>
+                <input type="checkbox" class="check-box"><span>Remember Password</span>
+              <button type="submit" class="signup-btn"  value="Login"> Log in</button>
+                 
+              
+              {% for messages in messages %}
+                   <p id="messages">{{messages}}</p>
+                {% endfor %}
+
+
+                   <hr>
+
+
+                  
+               <p>Don't have an account? <br><a href="/register/">Register</a></p>
+ 
+
+
+
+
+
+
+
+            </form>
+
+         </div>
+
+         
+<script>
+    function checkForBlank() {
+if(document.getElementById("email").value == "") {
+    document.getElementById("email_error_message").textContent="Email required!";
+        
+}
+if(document.getElementById("password").value == "") {
+    document.getElementById("password1_error_message").textContent="Password required!";
+        
+}
+if(document.getElementById("number").value == "") {
+    document.getElementById("phone_number_message").textContent="Phone Number required!";
+        
+}
+       
+if (document.getElementById("username").value == "") {
+    document.getElementById("username_error_message").textContent="Username required!";
+     return false;
+}
+            }
+        </script>
+
+    </body>
+</html>
