@@ -1,0 +1,16 @@
+asgiref==3.7.2
+dj-database-url==2.3.0
+Django==4.2.7
+django-heroku==0.3.1
+django-multiupload==0.6.1
+gunicorn==23.0.0
+packaging==24.2
+Pillow==10.1.0
+psycopg2==2.9.10
+python-decouple==3.8
+setuptools==68.2.2
+sqlparse==0.4.4
+typing_extensions==4.12.2
+tzdata==2023.3
+wheel==0.41.3
+whitenoise==6.8.2

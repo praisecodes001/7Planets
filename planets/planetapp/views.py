@@ -23,6 +23,10 @@ from django.contrib.auth.decorators import login_required
 def home(request):
     
     return render(request,'planetapp/home.html')
+def conditions(request):
+    
+    return render(request,'planetapp/conditions.txt')
+
 
 @login_required(login_url='login')
 def product(request):

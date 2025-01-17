@@ -22,7 +22,7 @@ label.logo a{
     color: #ffffff;
 }
 
-.custom-class input[type=text]{
+.input-field.custom-class{
     width: 100%;
     padding: 10px 0;
     margin: 5px 0;
@@ -36,35 +36,6 @@ label.logo a{
     color: #fff;
     
 }
-.custom-class input[type=email]{
-    width: 100%;
-    padding: 10px 0;
-    margin: 5px 0;
-    margin-top: 30px;
-    border-left: 0;
-    border-right: 0;
-    border-top: 0;
-    border-bottom: 1px solid #3b5998;
-    outline: none;
-    background: transparent;
-    color: #fff;
-    
-}
-.custom-class input[type=password]{
-    width: 100%;
-    padding: 10px 0;
-    margin: 5px 0;
-    margin-top: 30px;
-    border-left: 0;
-    border-right: 0;
-    border-top: 0;
-    border-bottom: 1px solid #3b5998;
-    outline: none;
-    background: transparent;
-    color: #fff;
-    
-}
-
 .check-box{
     margin: 5px 10px 30px 0;
 }
