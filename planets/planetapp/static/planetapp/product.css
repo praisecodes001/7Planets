@@ -75,7 +75,6 @@ footer {
  
     color: #000;
     text-align: center;
-    
 }
 
 /* Example CSS for messages */
@@ -142,5 +141,8 @@ nav .fas{
     }
     .fas.fa-bars{
         float: right;
+    }
+    .user{
+        text-align: center;
     }
 }

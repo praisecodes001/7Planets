@@ -19,9 +19,11 @@
                 <li><a href="/cart/">Cart</a></li>
                 <li><a href="{% url 'logout' %}">Logout</a></li>
                 <i class="fas fa-times" onclick="closemenu()"></i>
+            <li style="float: right;" class="user">Hi, {{ user.username }}</li>
 
             </ul>
             <i class="fas fa-bars" onclick="openmenu()"></i>
+          
         </nav>
     </header>
     {% if messages %}
@@ -96,4 +98,4 @@
  </script>
 
 </body>
-</html>
+</h

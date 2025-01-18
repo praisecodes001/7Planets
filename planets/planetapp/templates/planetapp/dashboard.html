@@ -8,7 +8,20 @@
     <link rel="stylesheet"  href="{% static 'planetapp/style.css' %}">
 </head>
 <body>
-    <h1>Order Dashboard(Admin Panel)</h1>
+    <h1>Order Dashboard (Admin Panel)</h1>
+    <form method="POST" action="{% url 'clear_orders' %}" onsubmit="return confirm('Are you sure you want to clear all orders?');">
+        {% csrf_token %}
+        <button type="submit" style="background-color: red; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+            Clear All Orders
+        </button>
+    </form>
+    {% if messages %}
+<div>
+    {% for message in messages %}
+    <p style="color: green;">{{ message }}</p>
+    {% endfor %}
+</div>
+{% endif %}
     <table>
         <thead>
             <tr>
@@ -36,4 +49,5 @@
         </tbody>
     </table>
 </body>
+
 </html>

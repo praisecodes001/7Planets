@@ -18,18 +18,17 @@
             <form id="register" action="" class="input-group" onsubmit="return checkForBlank()" method="POST" enctype="multipart/form-data">
                  
                 {% csrf_token %}
-                <div  class="input-field custom-class" name="username" id="username" placeholder=" User Name" style="outline: none;">{{form.username}}</div>
+                <input type="text" class="input-field custom-class" name="username" id="username" placeholder=" User Name" style="outline: none;"required {{form.username}} 
                 <span id="username_error_message" class="error"></span>
 
-                <div type="email" class="input-field custom-class" name="email" id="email" placeholder="Email"  style="outline: none;">{{form.email}}</div>
+                <input type="email" class="input-field custom-class" name="email" id="email" placeholder="Email"  style="outline: none;" {{form.email}}
                 <span id="email_error_message" class="error"></span>
 
-
-                <div type="password" class="input-field custom-class" id="password1" name="password1" placeholder="Password" style="outline: none;" >{{form.password1}}</div>
+                <input type="password" class="input-field custom-class" id="password1" name="password1" placeholder="Password" style="outline: none;" required {{form.password1}}
                 <span id="password1_error_message" class="error"></span>
 
-
-                <div type="password" class="input-field custom-class" name="password2" id="password2" placeholder="Confirm Password" style="outline: none;" >{{form.password2}}</div>
+                <input type="password" class="input-field custom-class" id="password1" name="password2" placeholder="Confirm Password" style="outline: none;" required {{form.password2}}
+    
 
 
                    <p><span><input type="checkbox"></span> <a href="/conditions">I agree to all terms and conditions</a></p>
@@ -41,23 +40,10 @@
                    <hr>
 
 
-                   <p class="or">OR</p>
-                   <p>Sign In with</p>
 
 
 
-                   <div class="row">
-                    <div class="col-1">
-                    <a href="#"><img src="image/google.jpg" alt=""></a>
-
-                    </div>
-                    <div class="col-1">
-                        <a href="#"><img src="image/facebook.jfif" alt=""></a>
-                    </div>
-                    <div class="col-1">
-                        <a href="#"><img src="image/twitter.png" alt=""></a>
-                    </div>
-                   </div>
+                  
 
                <p>Do you have an account? <br><a href="/login/">Sign In</a></p>
  

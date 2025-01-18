@@ -14,6 +14,7 @@ urlpatterns = [
     path('register/', views.register, name="register"),
     path('conditions/', views.conditions, name="conditions"),
     path('login/', views.loginPage, name="login"),
+    path('clear-orders/', views.clear_orders, name='clear_orders'),
     path('order_success/', views.order_success, name="order_success"),
     path('checkout/', views.checkout, name="checkout"),
     path('product/', views.PostListView.as_view(), name="product"),

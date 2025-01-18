@@ -22,7 +22,7 @@ label.logo a{
     color: #ffffff;
 }
 
-.custom-class input[type=text]{
+input.input-field.custom-class{
     width: 100%;
     padding: 10px 0;
     margin: 5px 0;
@@ -67,6 +67,7 @@ label.logo a{
 
 .check-box{
     margin: 5px 10px 30px 0;
+    float: left;
 }
 
 span{
@@ -94,7 +95,6 @@ span.error{
     margin: 5% auto;
     text-align: center;
     color: #fff;
-    
     margin-top: 40px;
 }
 

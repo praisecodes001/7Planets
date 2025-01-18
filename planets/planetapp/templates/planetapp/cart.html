@@ -3,6 +3,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/f9f6acc074.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>7 Planets - Cart</title>
     <link rel="stylesheet" href="{% static 'planetapp/cart.css' %}">
@@ -10,12 +12,18 @@
 <body>
     <header>
         <nav>
-            <ul class="nav-links">
+            <ul class="nav-links" id="nav-links">
                 <li><a href="/home">Home</a></li>
                 <li><a href="/product/">Products</a></li>
                 <li><a href="/cart/" class="active">Cart</a></li>
                 <li><a href="{% url 'logout' %}">Logout</a></li>
+                <i class="fas fa-times" onclick="closemenu()"></i>
+                
+                <li style="float: right;">Hi, {{ user.username }}</li>
+                
             </ul>
+            <i class="fas fa-bars" onclick="openmenu()"></i>
+
         </nav>
     </header>
 
@@ -65,7 +73,7 @@
                     <option value="XXL">XXL</option>
                 </select>
             
-                <label for="num">Phone Number</label>
+                <label for="num">Phone Number (Whatsapp Number )(+234..)</label>
                 <input type="number" name="num" id="num" required>
             
                 <label for="email">Email Address</label>
@@ -76,11 +84,11 @@
                 <div class="btn" onclick="showPay()">Proceed to Payment</div>
                 <div class="pay" id="pay">
                     <h2>Transfer Details</h2>
-                    <h3>Account Number: 1427074731</h3>
-                    <h3>Bank: WEMA</h3>
-                    <h3>Name: 7 Planet Funds</h3>
+                    <h3>Account Number: 1821906661</h3>
+                    <h3>Bank: Access Bank</h3>
+                    <h3>Name: Amaechi Chidike David</h3>
                     <h3 id="total-price">Amount: ₦{{ cart.total_price }}</h3>
-                    <button type="submit">I have made this transfer</button>
+                    <button type="submit" class="done">I have made this transfer</button>
                 </div>
                 
             
@@ -100,7 +108,17 @@
           document.querySelector('.btn').style.display = 'none';
           
         }
-        </script>
+  </script>
+        <script>
+    var sidemenu = document.getElementById("nav-links");
+
+    function openmenu(){
+         sidemenu.style.right = "0";
+    }
+    function closemenu(){
+        sidemenu.style.right = "-200px";
+    }
+</script>
 </body>
 
 

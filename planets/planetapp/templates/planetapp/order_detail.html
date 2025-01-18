@@ -8,33 +8,41 @@
     <link rel="stylesheet" href="{% static 'planetapp/style.css' %}" >
 </head>
 <body>
-    <h1>Order Details</h1>
-    <p><strong>Order ID:</strong> {{ order.id }}</p>
-    <p><strong>Customer:</strong> {{ order.user.username }}</p>
-    <p><strong>Phone:</strong> {{ order.phone_number }}</p>
-    <p><strong>Email:</strong> {{ order.email }}</p>
-    <p><strong>Size:</strong> {{ order.size }}</p>
-    <p><strong>Address:</strong> {{ order.address }}</p>
-    <p><strong>Total Price:</strong> ₦{{ order.total_price }}</p>
-    <p><strong>Status:</strong> {{ order.status }}</p>
-    <p><strong>Order Date:</strong> {{ order.created_at|date:"d M Y, H:i" }}</p>
-    <h2>Items</h2>
-    <ul>
-        {% for item in order.items.all %}
-        <li>{{ item.post.name }} - ₦{{ item.post.price }} x {{ item.quantity }}</li>
-        {% endfor %}
-    </ul>
-    <form method="POST" action="{% url 'update_order_status' order.id %}">
-        {% csrf_token %}
-        <label for="status">Update Status:</label>
-        <select name="status" id="status">
-            <option value="Pending" {% if order.status == "Pending" %}selected{% endif %}>Pending</option>
-            <option value="Processing" {% if order.status == "Processing" %}selected{% endif %}>Processing</option>
-            <option value="Shipped" {% if order.status == "Shipped" %}selected{% endif %}>Shipped</option>
-            <option value="Delivered" {% if order.status == "Delivered" %}selected{% endif %}>Delivered</option>
-            <option value="Cancelled" {% if order.status == "Cancelled" %}selected{% endif %}>Cancelled</option>
-        </select>
-        <button type="submit">Update</button>
-    </form>
+    <div class="container">
+        <h1>Order Details</h1>
+        <p><strong>Order ID:</strong> {{ order.id }}</p>
+        <p><strong>Customer:</strong> {{ order.user.username }}</p>
+        <p>
+            <strong>Phone:</strong>
+            <a href="https://wa.me/{{ order.phone_number }}?text=Thank%20you%20for%20your%20order%20{{  order.user.username }},%20Just%20to%20confirm,%20you%20made%20an%20order%20for%20{{ order.items }}.%20Kindly%20share%20your%20evidence%20of%20payment%20so%20we%20can%20process%20your%20order%20to%20you" 
+              target="_blank">
+              {{ order.phone_number }}
+            </a>
+          </p>
+        <p><strong>Email:</strong> {{ order.email }}</p>
+        <p><strong>Size:</strong> {{ order.size }}</p>
+        <p><strong>Address:</strong> {{ order.address }}</p>
+        <p><strong>Total Price:</strong> ₦{{ order.total_price }}</p>
+        <p><strong>Status:</strong> {{ order.status }}</p>
+        <p><strong>Order Date:</strong> {{ order.created_at|date:"d M Y, H:i" }}</p>
+        <h2>Items</h2>
+        <ul>
+            {% for item in order.items.all %}
+            <li>{{ item.post.name }} - ₦{{ item.post.price }} x {{ item.quantity }}</li>
+            {% endfor %}
+        </ul>
+        <form method="POST" action="{% url 'update_order_status' order.id %}">
+            {% csrf_token %}
+            <label for="status">Update Status:</label>
+            <select name="status" id="status">
+                <option value="Pending" {% if order.status == "Pending" %}selected{% endif %}>Pending</option>
+                <option value="Processing" {% if order.status == "Processing" %}selected{% endif %}>Processing</option>
+                <option value="Shipped" {% if order.status == "Shipped" %}selected{% endif %}>Shipped</option>
+                <option value="Delivered" {% if order.status == "Delivered" %}selected{% endif %}>Delivered</option>
+                <option value="Cancelled" {% if order.status == "Cancelled" %}selected{% endif %}>Cancelled</option>
+            </select>
+            <button type="submit">Update</button>
+        </form>
+    </div>
 </body>
 </html>

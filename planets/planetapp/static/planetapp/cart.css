@@ -166,16 +166,69 @@ table {
   }    
 .pay{
   display: none;
+  text-align: center;
+}
+.done {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
 }
 .btn{
-  background: linear-gradient(to left, aqua , brown);
+  background-color: #333;
   color: #fff;
-  text-decoration: none;
-  padding: 12px 30px;
-  border-radius: 8px;
-  display: inline-block;
+  border: none;
+  padding: 10px 20px;
   cursor: pointer;
-  margin-bottom: 40px;
-  margin-left: 75%;
-  margin-top: 20px;
+  border-radius: 5px;
 } 
+
+
+@media only screen and (max-width: 600px){
+  nav .fas{
+      display: block;
+      font-size: 25px;
+  }
+      nav ul.nav-links li{
+          margin: 10px 0;
+          display: block;
+      }
+     nav{
+      max-height: 150px;
+      overflow: hidden;
+      transition: max-height 0.5s;
+     }
+     nav ul{
+      background: #0e0b0b;
+      position: fixed;
+      top: 0;
+      right: -200px;
+      width: 160px;
+      height: 100vh;
+      padding-top: 50px;
+      z-index: 2;
+      transition: .5s;
+  }
+  nav ul li{
+      display: block;
+      margin: 20px;
+      margin-left: -20px;
+  }
+  nav ul .fas{
+      position: absolute;
+      top: 25px;
+      left: 25px;
+      cursor: pointer;
+  }
+  .fas.fa-times{
+       color: #fff;
+  }
+  .fas.fa-bars{
+      float: right;
+  }
+  .user{
+      text-align: center;
+  }
+}

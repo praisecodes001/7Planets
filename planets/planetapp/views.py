@@ -3,6 +3,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from .forms import CreateUserForm, PostForm 
 from django.views import View
+from django.contrib.auth.decorators import user_passes_test
 from django.shortcuts import render,  get_object_or_404 , redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
@@ -219,11 +220,23 @@ def order_detail(request, order_id):
     return render(request, 'planetapp/order_detail.html', {'order': order})
 
 
+  
+@login_required(login_url='login')
 def update_order_status(request, order_id):
+    order = get_object_or_404(Order, id=order_id)
     if request.method == "POST":
-        order = get_object_or_404(Order, id=order_id)
-        new_status = request.POST.get("status")
-        order.status = new_status
-        order.save()
-        return redirect("order_detail", order_id=order.id)    
-    
+        status = request.POST.get("status")
+        if status in ["Pending", "Processing", "Shipped", "Delivered", "Cancelled"]:
+            order.status = status
+            order.save()
+            return redirect("order_detail", order_id=order.id)  # Replace 'order_details' with your actual view name
+    return HttpResponse("Invalid request", status=400)
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def clear_orders(request):
+    if request.method == "POST":
+        Order.objects.all().delete()  # Deletes all orders
+        messages.success(request, "All orders have been cleared.")
+        return redirect('dashboard')  # Replace with your order dashboard view name
+    return redirect('order_dashboard')
